@@ -1,0 +1,361 @@
+.8086
+.model small
+.stack 100h
+.data
+
+.code
+	main proc
+	mov ax, @data
+	mov ds, ax
+	mov ax, stack
+	mov ss, ax
+
+	;ACTIVO EL MODO DE VIDEO 320X200 INT 13H
+	mov ah, 00h 
+	mov al, 13h 
+	int 10h 
+
+	;DIBUJO UN PIXEL! COLUMNA 160 FILA 100
+	mov ah, 0Ch
+mov al, 11
+mov cx,1
+mov dx,0
+int 10h
+mov cx,1
+mov dx,1
+int 10h
+mov cx,1
+mov dx,2
+int 10h
+mov cx,1
+mov dx,3
+int 10h
+mov cx,1
+mov dx,4
+int 10h
+mov cx,1
+mov dx,5
+int 10h
+mov cx,1
+mov dx,6
+int 10h
+mov cx,1
+mov dx,7
+int 10h
+mov cx,1
+mov dx,8
+int 10h
+mov cx,2
+mov dx,0
+int 10h
+mov cx,3
+mov dx,0
+int 10h
+mov cx,4
+mov dx,1
+int 10h
+mov cx,4
+mov dx,2
+int 10h
+mov cx,3
+mov dx,3
+int 10h
+mov cx,2
+mov dx,3
+int 10h
+mov cx,2
+mov dx,4
+int 10h
+mov cx,3
+mov dx,5
+int 10h
+mov cx,4
+mov dx,6
+int 10h
+mov cx,4
+mov dx,7
+int 10h
+mov cx,4
+mov dx,8
+int 10h
+mov cx,13
+mov dx,0
+int 10h
+mov cx,12
+mov dx,1
+int 10h
+mov cx,11
+mov dx,2
+int 10h
+mov cx,11
+mov dx,3
+int 10h
+mov cx,11
+mov dx,4
+int 10h
+mov cx,12
+mov dx,4
+int 10h
+mov cx,13
+mov dx,4
+int 10h
+mov cx,14
+mov dx,4
+int 10h
+mov cx,15
+mov dx,4
+int 10h
+mov cx,16
+mov dx,4
+int 10h
+mov cx,17
+mov dx,4
+int 10h
+mov cx,17
+mov dx,1
+int 10h
+mov cx,16
+mov dx,0
+int 10h
+mov cx,15
+mov dx,0
+int 10h
+mov cx,11
+mov dx,5
+int 10h
+mov cx,11
+mov dx,6
+int 10h
+mov cx,11
+mov dx,7
+int 10h
+mov cx,11
+mov dx,8
+int 10h
+mov cx,17
+mov dx,5
+int 10h
+mov cx,17
+mov dx,6
+int 10h
+mov cx,17
+mov dx,7
+int 10h
+mov cx,17
+mov dx,8
+int 10h
+mov cx,21
+mov dx,0
+int 10h
+mov cx,20
+mov dx,1
+int 10h
+mov cx,20
+mov dx,2
+int 10h
+mov cx,20
+mov dx,3
+int 10h
+mov cx,20
+mov dx,4
+int 10h
+mov cx,20
+mov dx,5
+int 10h
+mov cx,20
+mov dx,6
+int 10h
+mov cx,20
+mov dx,7
+int 10h
+mov cx,21
+mov dx,8
+int 10h
+mov cx,22
+mov dx,8
+int 10h
+mov cx,23
+mov dx,8
+int 10h
+mov cx,24
+mov dx,7
+int 10h
+mov cx,24
+mov dx,6
+int 10h
+mov cx,24
+mov dx,1
+int 10h
+mov cx,24
+mov dx,2
+int 10h
+mov cx,23
+mov dx,0
+int 10h
+mov cx,22
+mov dx,0
+int 10h
+mov cx,31
+mov dx,0
+int 10h
+mov cx,31
+mov dx,1
+int 10h
+mov cx,31
+mov dx,2
+int 10h
+mov cx,31
+mov dx,3
+int 10h
+mov cx,31
+mov dx,4
+int 10h
+mov cx,31
+mov dx,5
+int 10h
+mov cx,31
+mov dx,6
+int 10h
+mov cx,31
+mov dx,7
+int 10h
+mov cx,31
+mov dx,8
+int 10h
+mov cx,40
+mov dx,0
+int 10h
+mov cx,40
+mov dx,1
+int 10h
+mov cx,40
+mov dx,2
+int 10h
+mov cx,40
+mov dx,3
+int 10h
+mov cx,40
+mov dx,4
+int 10h
+mov cx,40
+mov dx,5
+int 10h
+mov cx,40
+mov dx,6
+int 10h
+mov cx,40
+mov dx,7
+int 10h
+mov cx,40
+mov dx,8
+int 10h
+mov cx,41
+mov dx,1
+int 10h
+mov cx,42
+mov dx,2
+int 10h
+mov cx,43
+mov dx,3
+int 10h
+mov cx,44
+mov dx,4
+int 10h
+mov cx,45
+mov dx,5
+int 10h
+mov cx,46
+mov dx,6
+int 10h
+mov cx,47
+mov dx,7
+int 10h
+mov cx,48
+mov dx,8
+int 10h
+mov cx,51
+mov dx,0
+int 10h
+mov cx,50
+mov dx,1
+int 10h
+mov cx,50
+mov dx,2
+int 10h
+mov cx,50
+mov dx,3
+int 10h
+mov cx,50
+mov dx,4
+int 10h
+mov cx,50
+mov dx,5
+int 10h
+mov cx,50
+mov dx,6
+int 10h
+mov cx,50
+mov dx,7
+int 10h
+mov cx,51
+mov dx,8
+int 10h
+mov cx,52
+mov dx,8
+int 10h
+mov cx,53
+mov dx,8
+int 10h
+mov cx,54
+mov dx,7
+int 10h
+mov cx,54
+mov dx,6
+int 10h
+mov cx,54
+mov dx,5
+int 10h
+mov cx,53
+mov dx,4
+int 10h
+mov cx,52
+mov dx,4
+int 10h
+mov cx,51
+mov dx,4
+int 10h
+mov cx,54
+mov dx,3
+int 10h
+mov cx,54
+mov dx,2
+int 10h
+mov cx,54
+mov dx,1
+int 10h
+mov cx,53
+mov dx,0
+int 10h
+mov cx,52
+mov dx,0
+int 10h
+
+	;ESPERO RESPUESTA POR TECLADO
+	mov ah, 00h 
+	int 16h 
+
+	;VUELVO AL MODO TEXTO
+	mov ah, 00h 
+	mov al, 03h 
+	int 10h 
+
+	;FIN
+	mov ah, 4ch 
+	int 21h 
+
+
+
+
+	main endp
+
+end
