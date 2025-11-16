@@ -30,7 +30,6 @@ font_Y db 11000011b, 01100110b, 00111100b, 00011000b, 00011000b, 00011000b, 0001
 font_Z db 11111111b, 00000110b, 00001100b, 00011000b, 00110000b, 01100000b, 11111111b, 00000000b
 current_x dw 0
 char_color db 14
-db 47h,50h,54h,32h,35h
 .code
 public draw_char
 public draw_text        
@@ -282,6 +281,7 @@ fin_texto:
     pop ax
     ret
 draw_text endp
+
 
 
 end
