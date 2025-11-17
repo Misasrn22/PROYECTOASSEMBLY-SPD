@@ -28,11 +28,34 @@ font_W db 11000011b, 11000011b, 11000011b, 11011011b, 11111111b, 11100111b, 1100
 font_X db 11000011b, 01100110b, 00111100b, 00011000b, 00111100b, 01100110b, 11000011b, 00000000b
 font_Y db 11000011b, 01100110b, 00111100b, 00011000b, 00011000b, 00011000b, 00011000b, 00000000b
 font_Z db 11111111b, 00000110b, 00001100b, 00011000b, 00110000b, 01100000b, 11111111b, 00000000b
+sprite_cat db 00011100b,00111110b,01110111b,01111111b,01111111b,01111111b,00111110b,00000000b
+sprite_hearth db 00000000b,01100110b,11111111b,11111111b,11111111b,01111110b,00111100b,00011000b
+sprite_alien db 00111100b,01111110b,11011011b,11111111b,11111111b,01111110b,01100110b,11000011b
+sprite_bomb db 00011000b,00011000b,01111110b,11111111b,11111111b,01111110b,00011000b,00011000b
+sprite_space_invader db 00111100b,01000010b,10100101b,11111111b,11111111b,01111110b,01000010b,10100101b
+sprite_pac db 00111100b,01111110b,11111111b,11111000b,11111111b,01111110b,00111100b,00000000b
+sprite_ghost db 01111110b,11111111b,11111111b,11111111b,11111111b,10100101b,10100101b,10100101b
+sprite_mushroom db 00111100b,01111110b,11111111b,11111111b,01111110b,00111100b,00011000b,00011000b
+
 current_x dw 0
 char_color db 14
+saved_color db 0
+tempX dw ?
+tempY dw ?
 .code
 public draw_char
-public draw_text        
+public draw_text
+public draw_sprites  
+public sprite_cat
+public sprite_alien
+public sprite_hearth
+public sprite_bomb
+public sprite_space_invader
+public sprite_pac
+public sprite_ghost
+public sprite_mushroom
+
+
 draw_char proc
     push ax
     push bx
@@ -190,10 +213,11 @@ draw_char endp
 
 
 ;=========================================================
-; draw_font_8x8
+; draw_font_8x8/16x16
 ;   Usa SI → puntero al FONT elegido
 ;   Usa CX,DX → posición
 ;=========================================================
+
 draw_font_8x8 proc
     push ax
     push bx
@@ -202,32 +226,29 @@ draw_font_8x8 proc
     push si
     push di
 
-    mov [current_x], cx
-    mov di, 8
+    mov [current_x], cx    ; guardo X inicial en memoria
 
+    mov di, 8              ; contador de filas (8 filas)
 fila_loop:
-    mov bl, [si]
-    mov cx, [current_x]
-    push di
-    mov di, 8
+    mov bl, [si]           ; BL = byte de la fila actual
+    mov cx, [current_x]    ; CX = X inicial para esta fila
+    xor bh, bh             ; BH = 0 (page 0)
 
+    mov bp, 8              ; contador de columnas (8 bits)
 col_loop:
-    test bl, 10000000b
+    test bl, 10000000b     ; testea el MSB (bit más alto)
     jz no_pixel
-
-    mov ah, 0Ch
-    mov al, [char_color]
-    int 10h
-
+        mov ah, 0Ch
+        mov al, [char_color]
+        int 10h
 no_pixel:
-    shl bl, 1
-    inc cx
-    dec di
+    shl bl, 1              ; correr bit
+    inc cx                 ; siguiente columna (X+1)
+    dec bp
     jnz col_loop
 
-    inc si
-    inc dx
-    pop di
+    inc si                 ; siguiente fila en el sprite
+    inc dx                 ; bajar 1 pixel (Y + 1)
     dec di
     jnz fila_loop
 
@@ -239,6 +260,7 @@ no_pixel:
     pop ax
     ret
 draw_font_8x8 endp
+
 ;--------------------------------------
 public draw_text
 
@@ -249,6 +271,7 @@ draw_text proc
     push dx
     push si
     push di
+    push ds
 
     ; ENTRADA:
     ; SI → puntero a cadena
@@ -279,9 +302,69 @@ fin_texto:
     pop cx
     pop bx
     pop ax
+    pop ds
     ret
 draw_text endp
 
+draw_sprites proc
 
+    ; Guardar coordenadas
+    mov ax, cx
+    mov [tempX], ax
+    mov ax, dx
+    mov [tempY], ax
 
+    ; Guardar color actual
+    mov ah, [char_color]
+    mov [saved_color], ah
+
+    ; Usar color recibido en AL
+    mov [char_color], al
+
+    ; Dibujar sprite
+    call draw_sprite_8x8
+
+    ; Restaurar color anterior
+    mov ah, [saved_color]
+    mov [char_color], ah
+
+    ret
+draw_sprites endp
+
+draw_sprite_8x8 proc
+    push ax
+    push si
+    push di
+
+    mov di, 8                ; 8 filas
+    mov ax, [tempX]          ; AX = X inicial
+    mov dx, [tempY]          ; DX = Y inicial
+
+sprite_fila_loop:
+    mov bl, [si]             ; BL = byte de la fila actual
+    mov cx, ax               ; CX = X actual
+    mov bp, 8                ; 8 columnas
+
+sprite_col_loop:
+    test bl, 10000000b
+    jz sprite_no_pixel
+    mov ah, 0Ch
+    mov al, [char_color]
+    int 10h
+sprite_no_pixel:
+    shl bl, 1
+    inc cx
+    dec bp
+    jnz sprite_col_loop
+
+    inc si
+    inc dx                   ; siguiente fila (Y + 1)
+    dec di
+    jnz sprite_fila_loop
+
+    pop di
+    pop si
+    pop ax
+    ret
+draw_sprite_8x8 endp
 end
