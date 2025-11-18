@@ -28,34 +28,79 @@ font_W db 11000011b, 11000011b, 11000011b, 11011011b, 11111111b, 11100111b, 1100
 font_X db 11000011b, 01100110b, 00111100b, 00011000b, 00111100b, 01100110b, 11000011b, 00000000b
 font_Y db 11000011b, 01100110b, 00111100b, 00011000b, 00011000b, 00011000b, 00011000b, 00000000b
 font_Z db 11111111b, 00000110b, 00001100b, 00011000b, 00110000b, 01100000b, 11111111b, 00000000b
-sprite_cat db 00011100b,00111110b,01110111b,01111111b,01111111b,01111111b,00111110b,00000000b
-sprite_hearth db 00000000b,01100110b,11111111b,11111111b,11111111b,01111110b,00111100b,00011000b
-sprite_alien db 00111100b,01111110b,11011011b,11111111b,11111111b,01111110b,01100110b,11000011b
-sprite_bomb db 00011000b,00011000b,01111110b,11111111b,11111111b,01111110b,00011000b,00011000b
-sprite_space_invader db 00111100b,01000010b,10100101b,11111111b,11111111b,01111110b,01000010b,10100101b
-sprite_pac db 00111100b,01111110b,11111111b,11111000b,11111111b,01111110b,00111100b,00000000b
-sprite_ghost db 01111110b,11111111b,11111111b,11111111b,11111111b,10100101b,10100101b,10100101b
-sprite_mushroom db 00111100b,01111110b,11111111b,11111111b,01111110b,00111100b,00011000b,00011000b
+;-----------------------------------------------------------------------------------------------------------;
+font_0 db 00111100b, 01100110b, 11001111b, 11011011b, 11110011b, 01100110b, 00111100b, 00000000b
+font_1 db 00011000b, 00111000b, 00011000b, 00011000b, 00011000b, 00011000b, 01111110b, 00000000b
+font_2 db 01111100b, 11000110b, 00000110b, 00011100b, 00110000b, 11000000b, 11111110b, 00000000b
+font_3 db 01111100b, 11000110b, 00000110b, 00011100b, 00000110b, 11000110b, 01111100b, 00000000b
+font_4 db 00001100b, 00011100b, 00111100b, 01101100b, 11111110b, 00001100b, 00001100b, 00000000b
+font_5 db 11111110b, 11000000b, 11111100b, 00000110b, 00000110b, 11000110b, 01111100b, 00000000b
+font_6 db 00111100b, 01100000b, 11000000b, 11111100b, 11000110b, 11000110b, 01111100b, 00000000b
+font_7 db 11111110b, 00000110b, 00001100b, 00011000b, 00110000b, 00110000b, 00110000b, 00000000b
+font_8 db 01111100b, 11000110b, 11000110b, 01111100b, 11000110b, 11000110b, 01111100b, 00000000b
+font_9 db 01111100b, 11000110b, 11000110b, 01111110b, 00000110b, 00001100b, 01111000b, 00000000b
 
+;------------------------------------------------------------------------------------------------------
+
+; Font 8x8 para caracteres especiales
+
+; Símbolos básicos
+font_SPACE db 00000000b, 00000000b, 00000000b, 00000000b, 00000000b, 00000000b, 00000000b, 00000000b  ; Espacio
+font_EXCL  db 00011000b, 00111100b, 00111100b, 00011000b, 00011000b, 00000000b, 00011000b, 00000000b  ; !
+font_QUOT  db 01101100b, 01101100b, 01101100b, 00000000b, 00000000b, 00000000b, 00000000b, 00000000b  ; "
+font_HASH  db 01101100b, 01101100b, 11111110b, 01101100b, 11111110b, 01101100b, 01101100b, 00000000b  ; #
+font_DOLAR db 00010000b, 01111100b, 11010000b, 01111000b, 00010110b, 11111000b, 00010000b, 00000000b  ; $
+font_PERC  db 01100010b, 01100110b, 00001100b, 00011000b, 00110000b, 01100110b, 11000110b, 00000000b  ; %
+font_AMP   db 00111000b, 01101100b, 00111000b, 01110110b, 11011100b, 11001100b, 01110110b, 00000000b  ; &
+font_APOS  db 00011000b, 00011000b, 00110000b, 00000000b, 00000000b, 00000000b, 00000000b, 00000000b  ; '
+font_LPAR  db 00001100b, 00011000b, 00110000b, 00110000b, 00110000b, 00011000b, 00001100b, 00000000b  ; (
+font_RPAR  db 00110000b, 00011000b, 00001100b, 00001100b, 00001100b, 00011000b, 00110000b, 00000000b  ; )
+font_STAR  db 00000000b, 01100110b, 00111100b, 11111111b, 00111100b, 01100110b, 00000000b, 00000000b  ; *
+font_PLUS  db 00000000b, 00011000b, 00011000b, 01111110b, 00011000b, 00011000b, 00000000b, 00000000b  ; +
+font_COMMA db 00000000b, 00000000b, 00000000b, 00000000b, 00011000b, 00011000b, 00110000b, 00000000b  ; ,
+font_MINUS db 00000000b, 00000000b, 00000000b, 01111110b, 00000000b, 00000000b, 00000000b, 00000000b  ; -
+font_DOT   db 00000000b, 00000000b, 00000000b, 00000000b, 00000000b, 00011000b, 00011000b, 00000000b  ; .
+font_SLASH db 00000000b, 00000110b, 00001100b, 00011000b, 00110000b, 01100000b, 11000000b, 00000000b  ; /
+
+; Símbolos para juegos
+font_COLON db 00000000b, 00011000b, 00011000b, 00000000b, 00000000b, 00011000b, 00011000b, 00000000b  ; :
+font_SEMI  db 00000000b, 00011000b, 00011000b, 00000000b, 00011000b, 00011000b, 00110000b, 00000000b  ; ;
+font_LT    db 00001100b, 00011000b, 00110000b, 01100000b, 00110000b, 00011000b, 00001100b, 00000000b  ; <
+font_EQUAL db 00000000b, 00000000b, 01111110b, 00000000b, 01111110b, 00000000b, 00000000b, 00000000b  ; =
+font_GT    db 00110000b, 00011000b, 00001100b, 00000110b, 00001100b, 00011000b, 00110000b, 00000000b  ; >
+font_QUEST db 01111100b, 11000110b, 00001100b, 00011000b, 00011000b, 00000000b, 00011000b, 00000000b  ; ?
+font_AT    db 01111100b, 10000110b, 10111010b, 10101010b, 10111010b, 10000000b, 01111100b, 00000000b  ; @
+
+; Corchetes y llaves
+font_LBRACK db 00111100b, 00110000b, 00110000b, 00110000b, 00110000b, 00110000b, 00111100b, 00000000b  ; [
+font_BSLASH db 11000000b, 01100000b, 00110000b, 00011000b, 00001100b, 00000110b, 00000010b, 00000000b  ; \
+font_RBRACK db 00111100b, 00001100b, 00001100b, 00001100b, 00001100b, 00001100b, 00111100b, 00000000b  ; ]
+font_CARET  db 00010000b, 00111000b, 01101100b, 11000110b, 00000000b, 00000000b, 00000000b, 00000000b  ; ^
+font_UNDER  db 00000000b, 00000000b, 00000000b, 00000000b, 00000000b, 00000000b, 11111111b, 00000000b  ; _
+font_BQUOT  db 00110000b, 00011000b, 00000000b, 00000000b, 00000000b, 00000000b, 00000000b, 00000000b  ; `
+
+; Símbolos para puntuación de juegos
+font_HEART  db 01101100b, 11111110b, 11111110b, 11111110b, 01111100b, 00111000b, 00010000b, 00000000b  ; ♥
+font_DIAMOND db 00010000b, 00111000b, 01111100b, 11111110b, 01111100b, 00111000b, 00010000b, 00000000b ; ♦
+font_CLUB   db 00011000b, 00011000b, 01111110b, 11111111b, 11111111b, 01111110b, 00011000b, 00011000b  ; ♣
+font_SPADE  db 00011000b, 00111100b, 01111110b, 11111111b, 11111111b, 00100100b, 01100110b, 00000000b  ; ♠
+
+; Flechas para controles
+font_ARROW_U db 00011000b, 00111100b, 01111110b, 00011000b, 00011000b, 00011000b, 00011000b, 00000000b ; ↑
+font_ARROW_D db 00011000b, 00011000b, 00011000b, 00011000b, 01111110b, 00111100b, 00011000b, 00000000b ; ↓
+font_ARROW_L db 00000000b, 00011000b, 00110000b, 01111110b, 00110000b, 00011000b, 00000000b, 00000000b ; ←
+font_ARROW_R db 00000000b, 00011000b, 00001100b, 01111110b, 00001100b, 00011000b, 00000000b, 00000000b ; →
+
+sprite_cat db  00000000b,01100110b,11111111b,11111111b,11111111b,01111110b,00111100b,00011000b
+alien          db  00111100b,01111110b,11011011b,11111111b,11111111b,01111110b,01100110b,11000011b  
 current_x dw 0
 char_color db 14
-saved_color db 0
-tempX dw ?
-tempY dw ?
+
+texto_anim db "ESTO ES $"
 .code
 public draw_char
-public draw_text
-public draw_sprites  
-public sprite_cat
-public sprite_alien
-public sprite_hearth
-public sprite_bomb
-public sprite_space_invader
-public sprite_pac
-public sprite_ghost
-public sprite_mushroom
-
-
+public draw_text  
+public animar_texto_lr 
 draw_char proc
     push ax
     push bx
@@ -65,138 +110,171 @@ draw_char proc
 
     mov bl, al         ; copiar caracter
 
-    ;-----------------------------------
-    ; Seleccionar fuente según BL
-    ;-----------------------------------
+    ; ----------------------------------
+    ; PRIMERO verificar números (0-9)
+    ; ----------------------------------
+    cmp bl, '0'
+    jb no_es_numero
+    cmp bl, '9'
+    ja no_es_numero
+    
+    sub bl, '0'
+    mov al, 8
+    mul bl
+    mov si, offset font_0
+    add si, ax
+    jmp dibujar
+
+no_es_numero:
+    ; ----------------------------------
+    ; LUEGO verificar letras (A-Z)
+    ; ----------------------------------
     cmp bl, 'A'
-    jne no_A
-    mov si, offset font_A
-    jmp dibujar
-no_A:
-    cmp bl, 'B'
-    jne no_B
-    mov si, offset font_B
-    jmp dibujar
-no_B:
-    cmp bl, 'C'
-    jne no_C
-    mov si, offset font_C
-    jmp dibujar
-no_C:
-    cmp bl, 'D'
-    jne no_D
-    mov si, offset font_D
-    jmp dibujar
-no_D:
-    cmp bl, 'E'
-    jne no_E
-    mov si, offset font_E
-    jmp dibujar
-no_E:
-    cmp bl, 'F'
-    jne no_F
-    mov si, offset font_F
-    jmp dibujar
-no_F:
-    cmp bl, 'G'
-    jne no_G
-    mov si, offset font_G
-    jmp dibujar
-no_G:
-    cmp bl, 'H'
-    jne no_H
-    mov si, offset font_H
-    jmp dibujar
-no_H:
-    cmp bl, 'I'
-    jne no_I
-    mov si, offset font_I
-    jmp dibujar
-no_I:
-    cmp bl, 'J'
-    jne no_J
-    mov si, offset font_J
-    jmp dibujar
-no_J:
-    cmp bl, 'K'
-    jne no_K
-    mov si, offset font_K
-    jmp dibujar
-no_K:
-    cmp bl, 'L'
-    jne no_L
-    mov si, offset font_L
-    jmp dibujar
-no_L:
-    cmp bl, 'M'
-    jne no_M
-    mov si, offset font_M
-    jmp dibujar
-no_M:
-    cmp bl, 'N'
-    jne no_N
-    mov si, offset font_N
-    jmp dibujar
-no_N:
-    cmp bl, 'O'
-    jne no_O
-    mov si, offset font_O
-    jmp dibujar
-no_O:
-    cmp bl, 'P'
-    jne no_P
-    mov si, offset font_P
-    jmp dibujar
-no_P:
-    cmp bl, 'Q'
-    jne no_Q
-    mov si, offset font_Q
-    jmp dibujar
-no_Q:
-    cmp bl, 'R'
-    jne no_R
-    mov si, offset font_R
-    jmp dibujar
-no_R:
-    cmp bl, 'S'
-    jne no_S
-    mov si, offset font_S
-    jmp dibujar
-no_S:
-    cmp bl, 'T'
-    jne no_T
-    mov si, offset font_T
-    jmp dibujar
-no_T:
-    cmp bl, 'U'
-    jne no_U
-    mov si, offset font_U
-    jmp dibujar
-no_U:
-    cmp bl, 'V'
-    jne no_V
-    mov si, offset font_V
-    jmp dibujar
-no_V:
-    cmp bl, 'W'
-    jne no_W
-    mov si, offset font_W
-    jmp dibujar
-no_W:
-    cmp bl, 'X'
-    jne no_X
-    mov si, offset font_X
-    jmp dibujar
-no_X:
-    cmp bl, 'Y'
-    jne no_Y
-    mov si, offset font_Y
-    jmp dibujar
-no_Y:
+    jb no_es_letra
     cmp bl, 'Z'
-    jne fin
-    mov si, offset font_Z
+    ja no_es_letra
+    
+    sub bl, 'A'
+    mov al, 8
+    mul bl
+    mov si, offset font_A
+    add si, ax
     jmp dibujar
+
+no_es_letra:
+    ; ----------------------------------
+    ; FINALMENTE verificar caracteres especiales
+    ; ----------------------------------
+    
+    ; Espacio
+    cmp bl, ' '
+    jne no_space
+    mov si, offset font_SPACE
+    jmp dibujar
+no_space:
+
+    ; Símbolos de puntuación
+    cmp bl, '!'
+    jne no_excl
+    mov si, offset font_EXCL
+    jmp dibujar
+no_excl:
+
+    cmp bl, '?'
+    jne no_quest
+    mov si, offset font_QUEST
+    jmp dibujar
+no_quest:
+
+    cmp bl, '.'
+    jne no_dot
+    mov si, offset font_DOT
+    jmp dibujar
+no_dot:
+
+    cmp bl, ','
+    jne no_comma
+    mov si, offset font_COMMA
+    jmp dibujar
+no_comma:
+
+    cmp bl, ':'
+    jne no_colon
+    mov si, offset font_COLON
+    jmp dibujar
+no_colon:
+
+    cmp bl, ';'
+    jne no_semi
+    mov si, offset font_SEMI
+    jmp dibujar
+no_semi:
+
+    ; Operadores matemáticos
+    cmp bl, '+'
+    jne no_plus
+    mov si, offset font_PLUS
+    jmp dibujar
+no_plus:
+
+    cmp bl, '-'
+    jne no_minus
+    mov si, offset font_MINUS
+    jmp dibujar
+no_minus:
+
+    cmp bl, '*'
+    jne no_star
+    mov si, offset font_STAR
+    jmp dibujar
+no_star:
+
+    cmp bl, '/'
+    jne no_slash
+    mov si, offset font_SLASH
+    jmp dibujar
+no_slash:
+
+    cmp bl, '='
+    jne no_equal
+    mov si, offset font_EQUAL
+    jmp dibujar
+no_equal:
+
+    ; Paréntesis y corchetes
+    cmp bl, '('
+    jne no_lpar
+    mov si, offset font_LPAR
+    jmp dibujar
+no_lpar:
+
+    cmp bl, ')'
+    jne no_rpar
+    mov si, offset font_RPAR
+    jmp dibujar
+no_rpar:
+
+    cmp bl, '['
+    jne no_lbrack
+    mov si, offset font_LBRACK
+    jmp dibujar
+no_lbrack:
+
+    cmp bl, ']'
+    jne no_rbrack
+    mov si, offset font_RBRACK
+    jmp dibujar
+no_rbrack:
+
+    ; Flechas (usando caracteres especiales)
+    cmp bl, 24         ; ↑ (código ASCII 24)
+    jne no_arrow_u
+    mov si, offset font_ARROW_U
+    jmp dibujar
+no_arrow_u:
+
+    cmp bl, 25         ; ↓ (código ASCII 25)
+    jne no_arrow_d
+    mov si, offset font_ARROW_D
+    jmp dibujar
+no_arrow_d:
+
+    cmp bl, 26         ; → (código ASCII 26)
+    jne no_arrow_r
+    mov si, offset font_ARROW_R
+    jmp dibujar
+no_arrow_r:
+
+    cmp bl, 27         ; ← (código ASCII 27)
+    jne no_arrow_l
+    mov si, offset font_ARROW_L
+    jmp dibujar
+no_arrow_l:
+
+    ; Si no es ningún caracter conocido, salir
+    mov si, offset sprite_cat
+    jmp dibujar
+    jmp fin
 
 dibujar:
     call draw_font_8x8
@@ -213,11 +291,10 @@ draw_char endp
 
 
 ;=========================================================
-; draw_font_8x8/16x16
+; draw_font_8x8
 ;   Usa SI → puntero al FONT elegido
 ;   Usa CX,DX → posición
 ;=========================================================
-
 draw_font_8x8 proc
     push ax
     push bx
@@ -226,29 +303,35 @@ draw_font_8x8 proc
     push si
     push di
 
-    mov [current_x], cx    ; guardo X inicial en memoria
+    ; aseguramos página 0
+    xor bh, bh
 
-    mov di, 8              ; contador de filas (8 filas)
+    ; guardamos X inicial en memoria temporal (word)
+    mov [current_x], cx
+
+    mov di, 8          ; filas = 8
 fila_loop:
-    mov bl, [si]           ; BL = byte de la fila actual
-    mov cx, [current_x]    ; CX = X inicial para esta fila
-    xor bh, bh             ; BH = 0 (page 0)
+    mov bl, [si]       ; byte de la fila
+    mov cx, [current_x] ; restaurar X inicial para esta fila
 
-    mov bp, 8              ; contador de columnas (8 bits)
+    push dx            ; guardo Y actual
+    mov bp, 8          ; columnas = 8
+
 col_loop:
-    test bl, 10000000b     ; testea el MSB (bit más alto)
+    test bl, 10000000b
     jz no_pixel
-        mov ah, 0Ch
-        mov al, [char_color]
-        int 10h
+    mov ah, 0Ch
+    mov al, [char_color]
+    int 10h
 no_pixel:
-    shl bl, 1              ; correr bit
-    inc cx                 ; siguiente columna (X+1)
+    shl bl,1
+    inc cx
     dec bp
     jnz col_loop
 
-    inc si                 ; siguiente fila en el sprite
-    inc dx                 ; bajar 1 pixel (Y + 1)
+    pop dx             ; recupero Y original
+    inc dx             ; bajo una fila
+    inc si             ; siguiente byte del font
     dec di
     jnz fila_loop
 
@@ -260,9 +343,8 @@ no_pixel:
     pop ax
     ret
 draw_font_8x8 endp
-
 ;--------------------------------------
-public draw_text
+
 
 draw_text proc
     push ax
@@ -271,12 +353,6 @@ draw_text proc
     push dx
     push si
     push di
-    push ds
-
-    ; ENTRADA:
-    ; SI → puntero a cadena
-    ; CX → X inicial
-    ; DX → Y inicial
 
     mov bx, cx        ; BX = X actual
     mov di, dx        ; DI = Y actual
@@ -286,13 +362,12 @@ next_char:
     cmp al, '$'
     je fin_texto
 
-    ; dibujar caracter en AL
     mov cx, bx        ; CX = X
     mov dx, di        ; DX = Y
     call draw_char
 
-    add bx, 10        ; avance en X
-    inc si            ; siguiente caracter
+    add bx, 10        ; AVANCE EN X (10 px por letra)
+    inc si
     jmp next_char
 
 fin_texto:
@@ -302,69 +377,82 @@ fin_texto:
     pop cx
     pop bx
     pop ax
-    pop ds
     ret
 draw_text endp
 
-draw_sprites proc
 
-    ; Guardar coordenadas
-    mov ax, cx
-    mov [tempX], ax
-    mov ax, dx
-    mov [tempY], ax
 
-    ; Guardar color actual
-    mov ah, [char_color]
-    mov [saved_color], ah
 
-    ; Usar color recibido en AL
-    mov [char_color], al
 
-    ; Dibujar sprite
-    call draw_sprite_8x8
 
-    ; Restaurar color anterior
-    mov ah, [saved_color]
-    mov [char_color], ah
-
-    ret
-draw_sprites endp
-
-draw_sprite_8x8 proc
+animar_texto_lr proc
     push ax
+    push bx
+    push cx
+    push dx
     push si
     push di
 
-    mov di, 8                ; 8 filas
-    mov ax, [tempX]          ; AX = X inicial
-    mov dx, [tempY]          ; DX = Y inicial
+    ; guardo color actual en BL (byte)
+    mov bl, [char_color]
 
-sprite_fila_loop:
-    mov bl, [si]             ; BL = byte de la fila actual
-    mov cx, ax               ; CX = X actual
-    mov bp, 8                ; 8 columnas
+    mov di, dx                ; DI = Y fijo (DX pasado por caller)
+    mov si, offset texto_anim ; puntero a la cadena
+    xor bx, bx                ; BX = X inicial (0)
 
-sprite_col_loop:
-    test bl, 10000000b
-    jz sprite_no_pixel
-    mov ah, 0Ch
-    mov al, [char_color]
-    int 10h
-sprite_no_pixel:
-    shl bl, 1
-    inc cx
-    dec bp
-    jnz sprite_col_loop
+main_loop:
+    ; 1) borrar (poner color negro en la variable que lee draw_font)
+    mov byte ptr [char_color], 0
 
-    inc si
-    inc dx                   ; siguiente fila (Y + 1)
-    dec di
-    jnz sprite_fila_loop
+    mov cx, bx
+    mov dx, di
+    mov si, offset texto_anim
+    call draw_text            ; borra en la posición BX,DI
+
+    ; 2) restaurar color real y dibujar
+    mov byte ptr [char_color], bl
+
+    mov cx, bx
+    mov dx, di
+    mov si, offset texto_anim
+    call draw_text
+
+    ; 3) avanzar (velocidad)
+    add bx, 2                 ; podés cambiar a 1,4,8 según querés velocidad/fluidez
+
+    cmp bx, 300
+    jg fin2
+
+    ; 4) delay simple
+    mov cx, 40
+del_out:
+    mov dx, 20000
+del_in:
+    dec dx
+    jnz del_in
+    dec cx
+    jnz del_out
+
+    jmp main_loop
+
+fin2:
+    ; dejar texto final dibujado con color real
+    mov byte ptr [char_color], bl
+    mov cx, bx
+    mov dx, di
+    mov si, offset texto_anim
+    call draw_text
 
     pop di
     pop si
+    pop dx
+    pop cx
+    pop bx
     pop ax
     ret
-draw_sprite_8x8 endp
+animar_texto_lr endp
+
+
+
 end
+
