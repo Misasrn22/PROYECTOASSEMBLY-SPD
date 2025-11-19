@@ -1,18 +1,8 @@
-# PROYECTOASSEMBLY-SPD; PARÁMETROS DE ENTRADA:
+🧩 Proyecto Assembly-SPD
+✨ Servicio INT 60h — Dibujado de Texto en Pantalla
+
+Este proyecto implementa funciones personalizadas en Assembly x86 (8086) para dibujar texto en pantalla mediante la interrupción INT 60h.
+A continuación se detalla la documentación oficial para usar el servicio.
 
 
-
-mov ah, 01h          ; Servicio de dibujar texto
-mov bl, color        ; Color del texto (0-15)
-mov cx, pos_x        ; Coordenada X (0-319)
-mov dx, pos_y        ; Coordenada Y (0-199)  
-mov si, offset texto ; Puntero a cadena terminada en '$'
-int 60h              ; Llamar al servicio
-
-; EJEMPLO:
-mov ah, 01h
-mov bl, 14           ; Amarillo
-mov cx, 100          ; X = 100
-mov dx, 50           ; Y = 50
-mov si, offset mensaje
-int 60h
+<img width="802" height="322" alt="image" src="https://github.com/user-attachments/assets/58cce15c-3f5a-41c8-a24c-a759ce1b08de" />
