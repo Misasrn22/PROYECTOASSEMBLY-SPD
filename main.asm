@@ -99,12 +99,14 @@ finpatron:
     mov dx, 180     ; alto
     call draw_marco_offset
 
-
-
-
+    mov al, 14
+    mov cx, 120  ; X
+    mov dx, 50   ; Y
+    mov si,offset CADENA2
+    call draw_text
     
     
-
+    mov al, 11
     mov cx, 70  ; X
     mov dx, 96     ; Y
     mov si,offset cadena  
